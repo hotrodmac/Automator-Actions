@@ -77,8 +77,6 @@
 				</array>
 				<key>arguments</key>
 				<dict/>
-				<key>conversionLabel</key>
-				<integer>0</integer>
 			</dict>
 		</dict>
 		<dict>
@@ -134,12 +132,12 @@
 do
 	outdir=$(dirname "${f}")/$(basename -s .pkg "${f}")
 	/usr/sbin/pkgutil --expand "${f}" "${outdir}"
-	if [[ -e "${outdir}"/payload.pkg ]]; then
+	if [[ -e "${outdir}"/Payload ]]; then
 		mkdir "${outdir}/Package Contents"
 		cd "${outdir}/Package Contents"
-		cat "${outdir}"/payload.pkg/Payload | gunzip -dc | cpio -i
-		if [[ -e "${outdir}/payload.pkg/Scripts" ]]; then
-			mv "${outdir}/payload.pkg/Scripts" "${outdir}/Package Contents"
+		cat "${outdir}"/Payload | gunzip -dc | cpio -i
+		if [[ -e "${outdir}/Scripts" ]]; then
+			mv "${outdir}/Scripts" "${outdir}/Package Contents"
 		fi
 	fi
 done</string>
@@ -178,6 +176,8 @@ done</string>
 				</array>
 				<key>OutputUUID</key>
 				<string>719E6555-CBD8-4417-803C-3610F60FEFD9</string>
+				<key>ShowWhenRun</key>
+				<false/>
 				<key>UUID</key>
 				<string>0092225B-C941-424C-AE45-8249F17FA528</string>
 				<key>UnlocalizedApplications</key>
@@ -252,12 +252,10 @@ done</string>
 						<string>4</string>
 					</dict>
 				</dict>
-				<key>conversionLabel</key>
-				<integer>0</integer>
 				<key>isViewVisible</key>
 				<true/>
 				<key>location</key>
-				<string>309.000000:499.000000</string>
+				<string>309.000000:517.000000</string>
 				<key>nibPath</key>
 				<string>/System/Library/Automator/Run Shell Script.action/Contents/Resources/English.lproj/main.nib</string>
 			</dict>
@@ -267,7 +265,7 @@ done</string>
 	</array>
 	<key>connectors</key>
 	<dict>
-		<key>DC656D07-9EE8-4D0E-BC95-B03B0038E7BE</key>
+		<key>09629F30-722E-48F1-803C-40F687DD8A0F</key>
 		<dict>
 			<key>from</key>
 			<string>B02CC5B4-EC18-42FD-B672-E0EAF6BFDE20 - B02CC5B4-EC18-42FD-B672-E0EAF6BFDE20</string>
